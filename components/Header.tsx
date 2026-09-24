@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import CTAButton from "./CTAButton";
-import { CONTACT_PATH, COUREURS_PATH } from "@/lib/constants";
+import { CONTACT_PATH, RUNNER_APP_URL } from "@/lib/constants";
 
 function ChevronDown({ className = "" }: { className?: string }) {
   return (
@@ -157,7 +157,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-4 lg:flex">
-          <CTAButton href={COUREURS_PATH} variant="secondary" size="md">
+          <CTAButton href={RUNNER_APP_URL} variant="secondary" size="md">
             Espace coureurs
           </CTAButton>
           <CTAButton href={CONTACT_PATH} variant="primary" size="md">
@@ -262,7 +262,7 @@ export default function Header() {
           </div>
 
           <div className="flex flex-col gap-2 border-t border-line px-6 py-4">
-            <CTAButton href={COUREURS_PATH} variant="secondary" size="lg" className="w-full">
+            <CTAButton href={RUNNER_APP_URL} variant="secondary" size="lg" className="w-full">
               Espace coureurs
             </CTAButton>
             <CTAButton href={CONTACT_PATH} variant="primary" size="lg" className="w-full">

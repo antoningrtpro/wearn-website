@@ -1,5 +1,6 @@
 import HeroTwoCol from "@/components/HeroTwoCol";
 import EventsMarquee from "@/components/EventsMarquee";
+import EventLogo from "@/components/EventLogo";
 import ProblemSolution from "@/components/ProblemSolution";
 import FeatureFilteredList from "@/components/FeatureFilteredList";
 import FeatureSubBlocks, { type SubBlock } from "@/components/FeatureSubBlocks";
@@ -114,12 +115,32 @@ export default function Home() {
       <EventsMarquee
         reassurance="Wearn est présent sur des courses partout en France"
         events={[
-          "Marathon de Paris",
-          "Trail des Templiers",
-          "Semi-marathon de Lyon",
-          "10km de Bordeaux",
-          "Marathon de Nantes",
-          "Trail du Ventoux",
+          <EventLogo
+            key="lsl"
+            src="https://cdn.prod.website-files.com/69431a153154265f304215bb/69df61bad91dba61ede84571_LSL.png"
+            alt="LSL"
+          />,
+          <EventLogo
+            key="berlin-marathon"
+            src="https://static.wikia.nocookie.net/logopedia/images/9/9b/BMWBerlinMarathon_2020.svg/revision/latest/scale-to-width-down/250?cb=20230123120640"
+            alt="BMW Berlin Marathon"
+          />,
+          <EventLogo
+            key="toulouse-run-experience"
+            src="https://harmonie-mutuelle.toulouserunexperience.fr/wp-content/files/toulouse-metropole-run-experience-accueil-Toulouse-Metropole-Run-Experience-logo-monochrome-rose-1024x412.png"
+            alt="Toulouse Métropole Run Experience"
+          />,
+          <EventLogo
+            key="lyon-urban-trail"
+            src="https://followmysport.com/wp-content/uploads/2024/10/lyonurbantraillutbynight.webp"
+            alt="Lyon Urban Trail by Night"
+            mode="knockout"
+          />,
+          <EventLogo
+            key="grand-raid-ventoux"
+            src="https://thumb.wikimedia.org/wikipedia/fr/thumb/a/ac/Logo_Grand_Raid_Ventoux_by_UTMB.png/1280px-Logo_Grand_Raid_Ventoux_by_UTMB.png"
+            alt="Grand Raid Ventoux by UTMB"
+          />,
         ]}
       />
 
