@@ -193,22 +193,52 @@ export default function Home() {
         ]}
       />
 
-      <ValueProposition
-        id="avantages"
-        eyebrow="La proposition"
-        title="Plus de visibilité, moins de dépenses"
-        subtitle="Une même mécanique, un bénéfice concret de chaque côté."
-        brandValue={{
-          eyebrow: "Pour les marques",
-          title: "Une visibilité renforcée, un coût maîtrisé",
-          description: "Vous gagnez en présence sur le terrain, course après course, sans multiplier votre budget marketing.",
-        }}
-        runnerValue={{
-          eyebrow: "Pour les coureurs",
-          title: "Un dossard qui coûte moins cher, voire rien du tout",
-          description: "Les revenus perçus permettent de réduire, voire de rembourser intégralement, le prix de votre inscription à la course.",
-        }}
-      />
+      <div className="bg-[#C4B5FD]">
+        <ValueProposition
+          id="avantages"
+          eyebrow="La proposition"
+          brands={{
+            tabLabel: "Pour les marques",
+            stat: "30+",
+            statLabel: "marques accompagnées",
+            caption: "font déjà confiance à Wearn pour leur visibilité sur le terrain.",
+            points: [
+              {
+                title: "Une présence répétée",
+                description: "Votre marque est portée à chaque course, pas seulement le jour d'un événement ponctuel.",
+              },
+              {
+                title: "Un ciblage précis",
+                description: "Vous choisissez le profil des coureurs et la zone géographique visée.",
+              },
+              {
+                title: "Un coût maîtrisé",
+                description: "Vous gagnez en présence sur le terrain sans multiplier votre budget marketing.",
+              },
+            ],
+          }}
+          runners={{
+            tabLabel: "Pour les coureurs",
+            stat: "500+",
+            statLabel: "coureurs actifs",
+            caption: "portent déjà une marque à chaque course.",
+            points: [
+              {
+                title: "Un revenu à chaque course",
+                description: "Vous êtes rémunéré pour porter une marque le temps d'une course.",
+              },
+              {
+                title: "Aucun engagement",
+                description: "Vous choisissez les propositions qui vous conviennent, course après course.",
+              },
+              {
+                title: "Un dossard moins cher",
+                description: "Les revenus perçus réduisent, voire remboursent, le prix de votre inscription.",
+              },
+            ],
+          }}
+        />
+      </div>
 
       <div className="bg-[#F9A8D4]">
         <TargetsGrid
