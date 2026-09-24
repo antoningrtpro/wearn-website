@@ -19,7 +19,6 @@ export default function ContactForm() {
       contactName: data.get("contactName")?.toString().trim(),
       email: data.get("email")?.toString().trim(),
       phone: data.get("phone")?.toString().trim(),
-      budget: data.get("budget")?.toString().trim(),
       message: data.get("message")?.toString().trim(),
     };
 
@@ -81,13 +80,6 @@ export default function ContactForm() {
           Téléphone <span className="text-ink-3">(facultatif)</span>
         </label>
         <input id="phone" name="phone" type="tel" className={inputClasses} placeholder="06 00 00 00 00" />
-      </div>
-
-      <div className="sm:col-span-2">
-        <label htmlFor="budget" className="mb-1.5 block text-sm font-medium text-ink">
-          Budget approximatif <span className="text-ink-3">(facultatif)</span>
-        </label>
-        <input id="budget" name="budget" type="text" className={inputClasses} placeholder="Ex. 2 000 € par mois" />
       </div>
 
       <div className="sm:col-span-2">

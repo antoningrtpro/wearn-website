@@ -7,7 +7,6 @@ type ContactPayload = {
   contactName?: string;
   email?: string;
   phone?: string;
-  budget?: string;
   message?: string;
 };
 
@@ -19,7 +18,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "invalid_body" }, { status: 400 });
   }
 
-  const { company, contactName, email, phone, budget, message } = payload;
+  const { company, contactName, email, phone, message } = payload;
 
   if (!company || !contactName || !email || !message) {
     return NextResponse.json({ error: "missing_fields" }, { status: 400 });
@@ -48,7 +47,6 @@ export async function POST(request: Request) {
         `Contact : ${contactName}`,
         `Email : ${email}`,
         phone ? `Téléphone : ${phone}` : null,
-        budget ? `Budget approximatif : ${budget}` : null,
         "",
         "Message :",
         message,
