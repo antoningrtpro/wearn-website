@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import CTAButton from "./CTAButton";
-import { ANNONCEURS_PATH, CONTACT_PATH, COUREURS_PATH } from "@/lib/constants";
+import { CONTACT_PATH, COUREURS_PATH } from "@/lib/constants";
 
 function ChevronDown({ className = "" }: { className?: string }) {
   return (
@@ -160,7 +160,7 @@ export default function Header() {
           <CTAButton href={COUREURS_PATH} variant="secondary" size="md">
             Espace coureurs
           </CTAButton>
-          <CTAButton href={ANNONCEURS_PATH} variant="primary" size="md">
+          <CTAButton href={CONTACT_PATH} variant="primary" size="md">
             Créer une campagne
           </CTAButton>
         </div>
@@ -265,7 +265,7 @@ export default function Header() {
             <CTAButton href={COUREURS_PATH} variant="secondary" size="lg" className="w-full">
               Espace coureurs
             </CTAButton>
-            <CTAButton href={ANNONCEURS_PATH} variant="primary" size="lg" className="w-full">
+            <CTAButton href={CONTACT_PATH} variant="primary" size="lg" className="w-full">
               Créer une campagne
             </CTAButton>
           </div>

@@ -16,7 +16,7 @@ import SectionIntro from "@/components/SectionIntro";
 import ComparisonTable from "@/components/ComparisonTable";
 import FinalCTA from "@/components/FinalCTA";
 import StatIcon from "@/components/StatIcon";
-import { ANNONCEURS_PATH, CONTACT_PATH, COUREURS_PATH } from "@/lib/constants";
+import { CONTACT_PATH, COUREURS_PATH } from "@/lib/constants";
 
 const SUB_BLOCKS: SubBlock[] = [
   {
@@ -100,7 +100,7 @@ export default function Home() {
           { icon: <StatIcon name="map-pin" />, text: "15 villes" },
         ]}
         ctaButtons={[
-          { label: "Je suis une marque", href: ANNONCEURS_PATH, variant: "primary" },
+          { label: "Je suis une marque", href: CONTACT_PATH, variant: "primary" },
           { label: "Je suis coureur", href: COUREURS_PATH, variant: "secondary" },
         ]}
         reassurance="Sans engagement, vous choisissez toujours ce qui vous convient."
@@ -268,15 +268,13 @@ export default function Home() {
         </section>
       </div>
 
-      <div className="bg-[#86EFAC]">
-        <FinalCTA
-          title="Rejoignez ceux qui courent déjà avec Wearn"
-          buttons={[
-            { label: "Lancer ma campagne", href: CONTACT_PATH, variant: "inverted" },
-            { label: "Devenir coureur", href: COUREURS_PATH, variant: "link-inverted" },
-          ]}
-        />
-      </div>
+      <FinalCTA
+        title="Rejoignez ceux qui courent déjà avec Wearn"
+        buttons={[
+          { label: "Lancer ma campagne", href: CONTACT_PATH, variant: "inverted" },
+          { label: "Devenir coureur", href: COUREURS_PATH, variant: "link-inverted" },
+        ]}
+      />
     </>
   );
 }
