@@ -6,6 +6,7 @@ export type SubBlock = {
   title: string;
   paragraph: string;
   mockup: React.ReactNode;
+  wide?: boolean;
 };
 
 type FeatureSubBlocksProps = {
@@ -44,13 +45,19 @@ export default function FeatureSubBlocks({
           <Reveal
             key={block.number}
             delayMs={i * 100}
-            className="w-[85%] shrink-0 snap-start sm:w-auto sm:shrink"
+            className={`w-[85%] shrink-0 snap-start sm:w-auto sm:shrink ${block.wide ? "sm:col-span-2" : ""}`}
           >
-            <div className="h-full rounded-2xl bg-surface-muted p-6 sm:p-8">
-              <span className="text-sm font-medium text-ink-3">{block.number}</span>
-              <h4 className="mt-2 text-lg font-semibold text-ink">{block.title}</h4>
-              <p className="mt-1 text-sm leading-[1.5] text-ink-2">{block.paragraph}</p>
-              <div className="mt-5">{block.mockup}</div>
+            <div
+              className={`h-full rounded-2xl bg-surface-muted p-6 sm:p-8 ${
+                block.wide ? "sm:flex sm:items-center sm:gap-10" : ""
+              }`}
+            >
+              <div className={block.wide ? "sm:flex-1" : ""}>
+                <span className="text-sm font-medium text-ink-3">{block.number}</span>
+                <h4 className="mt-2 text-lg font-semibold text-ink">{block.title}</h4>
+                <p className="mt-1 text-sm leading-[1.5] text-ink-2">{block.paragraph}</p>
+              </div>
+              <div className={block.wide ? "mt-5 sm:mt-0 sm:w-[320px] sm:shrink-0" : "mt-5"}>{block.mockup}</div>
             </div>
           </Reveal>
         ))}

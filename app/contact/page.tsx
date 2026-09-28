@@ -15,7 +15,7 @@ const PARTNER_LOGOS: ReactNode[] = [];
 export default function ContactPage() {
   return (
     <section className="mx-auto max-w-[1200px] px-6 py-16 sm:px-8 lg:py-24">
-      <div className="grid gap-16 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+      <div className="grid gap-16 lg:grid-cols-[0.98fr_1.02fr] lg:items-start">
         <div>
           <Eyebrow>Découvrir Wearn</Eyebrow>
           <h1 className="mt-6 max-w-md text-[28px] font-semibold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[34px] lg:text-[38px]">

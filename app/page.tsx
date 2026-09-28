@@ -51,6 +51,7 @@ const SUB_BLOCKS: SubBlock[] = [
     number: "03",
     title: "La photo est envoyée",
     paragraph: "Le coureur envoie une photo depuis l'application pour confirmer sa participation, notre équipe valide en quelques heures.",
+    wide: true,
     mockup: (
       <MockupApproval
         avatarLabel="TL"
@@ -211,7 +212,7 @@ export default function Home() {
               },
               {
                 title: "Un ciblage précis",
-                description: "Vous choisissez le profil des coureurs.",
+                description: "Vous choisissez le profil des coureurs et notre équipe s'occupe du reste.",
               },
               {
                 title: "Un coût maîtrisé",
@@ -250,6 +251,18 @@ export default function Home() {
             { title: "Marques nationales", description: "Nutrition sportive, assurance, banque : une audience sportive engagée, ciblée précisément." },
             { title: "Marques locales", description: "Commerces et enseignes qui veulent être vus sur leur territoire, course après course." },
             { title: "Coureurs de tous niveaux", description: "Du joggeur occasionnel au trailer confirmé, chacun peut rentabiliser ses dossards." },
+          ]}
+        />
+      </div>
+
+      <div className="bg-[#7DD3FC]">
+        <TargetsGrid
+          eyebrow="Vos avantages"
+          title="Pourquoi les marques choisissent Wearn"
+          targets={[
+            { title: "Visibilité répétée", description: "Votre marque est portée à chaque course, sur le terrain, sans se limiter à un seul événement." },
+            { title: "Attractif financièrement", description: "Un coût maîtrisé et défini au devis, sans multiplier votre budget marketing." },
+            { title: "Rapide à déployer", description: "Une campagne lancée en quelques jours, du ciblage jusqu'au jour de la course." },
           ]}
         />
       </div>

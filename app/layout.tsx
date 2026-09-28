@@ -33,7 +33,7 @@ export const viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="fr" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-bg text-ink">
+      <body className="min-h-full flex flex-col bg-bg text-ink" suppressHydrationWarning>
         <SkipLink />
         <Header />
         <main id="main-content" className="flex-1">
