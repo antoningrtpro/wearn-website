@@ -6,7 +6,7 @@ const DIGITS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function OdometerDigit({ digit, active }: { digit: number; active: boolean }) {
   return (
-    <span className="relative inline-block h-[1em] w-[0.62em] overflow-hidden align-bottom">
+    <span className="relative inline-block h-[1em] w-[0.62em] overflow-hidden align-bottom" aria-hidden="true">
       <span
         className="absolute left-0 top-0 flex flex-col transition-transform ease-out"
         style={{
@@ -15,9 +15,7 @@ function OdometerDigit({ digit, active }: { digit: number; active: boolean }) {
         }}
       >
         {DIGITS.map((d) => (
-          <span key={d} className="h-[1em] leading-[1em]">
-            {d}
-          </span>
+          <span key={d} data-digit={d} className="h-[1em] leading-[1em] before:content-[attr(data-digit)]" />
         ))}
       </span>
     </span>
@@ -64,17 +62,26 @@ export default function Odometer({ value, prefix = "", suffix = "", className = 
 
   return (
     <span ref={ref} className={`tabular-nums ${className}`}>
-      {prefix}
-      {reduceMotion
-        ? value.toLocaleString("fr-FR")
-        : digits.map((char, i) =>
-            /\d/.test(char) ? (
-              <OdometerDigit key={i} digit={Number(char)} active={active} />
-            ) : (
-              <span key={i}>{char}</span>
-            )
-          )}
-      {suffix}
+      <span aria-hidden="true">
+        {prefix && <span data-value={prefix} className="before:content-[attr(data-value)]" />}
+        {reduceMotion
+          ? digits.map((char, i) => (
+              <span key={i} data-value={char} className="before:content-[attr(data-value)]" />
+            ))
+          : digits.map((char, i) =>
+              /\d/.test(char) ? (
+                <OdometerDigit key={i} digit={Number(char)} active={active} />
+              ) : (
+                <span key={i} data-value={char} className="before:content-[attr(data-value)]" />
+              )
+            )}
+        {suffix && <span data-value={suffix} className="before:content-[attr(data-value)]" />}
+      </span>
+      <span className="sr-only">
+        {prefix}
+        {value.toLocaleString("fr-FR")}
+        {suffix}
+      </span>
     </span>
   );
 }
