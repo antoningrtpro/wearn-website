@@ -4,6 +4,7 @@ type MarqueeProps = {
   direction?: "left" | "right";
   className?: string;
   itemClassName?: string;
+  gapClassName?: string;
 };
 
 // Repeated an even number of times so translateX(-50%) always lands exactly
@@ -18,6 +19,7 @@ export default function Marquee({
   direction = "left",
   className = "",
   itemClassName = "",
+  gapClassName = "gap-8",
 }: MarqueeProps) {
   const repeatedItems = Array.from({ length: REPEAT_COUNT }, () => items).flat();
 
@@ -27,7 +29,7 @@ export default function Marquee({
       style={{ maskImage: "linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent)" }}
     >
       <div
-        className="marquee-track flex w-max items-center gap-8"
+        className={`marquee-track flex w-max items-center ${gapClassName}`}
         data-direction={direction}
         style={{ "--marquee-duration": `${durationSeconds}s` } as React.CSSProperties}
       >
