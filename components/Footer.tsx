@@ -1,21 +1,19 @@
 import Link from "next/link";
-import { ANNONCEURS_PATH, CONTACT_PATH, COUREURS_PATH } from "@/lib/constants";
+import { CONTACT_PATH, COUREURS_PATH } from "@/lib/constants";
 
 const COLUMNS = [
   {
     title: "Produit",
     links: [
       { label: "Comment ça marche", href: "/#comment-ca-marche" },
-      { label: "Annonceurs", href: ANNONCEURS_PATH },
       { label: "Coureurs", href: COUREURS_PATH },
     ],
   },
   {
     title: "Marques",
     links: [
-      { label: "Comment ça marche", href: `${ANNONCEURS_PATH}#comment-ca-marche` },
-      { label: "Comparatif", href: `${ANNONCEURS_PATH}#comparatif` },
-      { label: "Cas d'usage", href: `${ANNONCEURS_PATH}#cas-usage` },
+      { label: "Vos avantages", href: `${CONTACT_PATH}#avantages` },
+      { label: "Comparatif", href: `${CONTACT_PATH}#comparatif` },
       { label: "Lancer ma campagne", href: CONTACT_PATH },
     ],
   },

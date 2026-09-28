@@ -51,6 +51,7 @@ export default function ContactPage() {
 
       <div className="bg-[#F9A8D4]">
         <TargetsGrid
+          id="avantages"
           eyebrow="Vos avantages"
           title="Pourquoi les marques choisissent Wearn"
           targets={[
@@ -62,7 +63,7 @@ export default function ContactPage() {
       </div>
 
       <div className="bg-[#93C5FD]">
-        <section className="mx-auto max-w-[1200px] px-6 py-12 sm:px-8 lg:py-16">
+        <section id="comparatif" className="mx-auto max-w-[1200px] px-6 py-12 sm:px-8 lg:py-16">
           <SectionIntro eyebrow="Comparatif" title="Pourquoi Wearn plutôt qu'un stand" />
           <ComparisonTable
             headers={["Stand événementiel", "Micro-influence", "Wearn"]}
