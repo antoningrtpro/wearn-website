@@ -26,7 +26,7 @@ import FinalCTA from "@/components/FinalCTA";
 import { RUNNER_SIGNUP_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Wearn pour les coureurs — Courez, portez un logo, soyez payé",
+  title: "Wearn pour les coureurs, courez, portez un logo, soyez payé",
   description:
     "Transformez vos courses en revenu complémentaire. Vous choisissez les campagnes, vous connaissez le montant avant d'accepter.",
 };
@@ -171,7 +171,7 @@ const OBJECTIONS: Objection[] = [
   {
     question: "À quelle fréquence vais-je recevoir des propositions ?",
     answer:
-      "Ça dépend des campagnes en cours et de votre profil (ville, disponibilités, courses prévues) — plus vous complétez votre profil, plus vous augmentez vos chances de recevoir des propositions adaptées.",
+      "Ça dépend des campagnes en cours et de votre profil (ville, disponibilités, courses prévues), plus vous complétez votre profil, plus vous augmentez vos chances de recevoir des propositions adaptées.",
   },
 ];
 
@@ -179,7 +179,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: "Sur quels types de courses puis-je participer ?",
     answer:
-      "Marathons, semi-marathons, trails, courses locales — tout type d'événement running partout en France.",
+      "Marathons, semi-marathons, trails, courses locales, tout type d'événement running partout en France.",
   },
   {
     question: "Puis-je porter plusieurs marquages pour plusieurs marques sur une même course ?",
@@ -223,7 +223,7 @@ export default function CoureursPage() {
         reassurance="Exemples illustratifs à titre indicatif, les montants réels varient selon chaque campagne."
         mediaLabel="Photo à intégrer : un coureur avec un marquage de marque visible sur sa tenue"
         kpiLabel="Coureurs partenaires"
-        kpiValue={500}
+        kpiValue={5000}
         kpiSuffix="+"
       />
 
@@ -305,7 +305,7 @@ export default function CoureursPage() {
         stepsTitle="Comment ça marche"
         steps={[
           { number: "01", title: "Vous vous inscrivez", description: "Vos infos, votre profil, vos préférences d'emplacement." },
-          { number: "02", title: "Vous recevez une proposition", description: "Événement, emplacement, montant proposé — vous voyez tout avant de répondre." },
+          { number: "02", title: "Vous recevez une proposition", description: "Événement, emplacement, montant proposé, vous voyez tout avant de répondre." },
           { number: "03", title: "Vous acceptez ou refusez", description: "Aucune obligation, vous décidez librement." },
           { number: "04", title: "Vous êtes payé", description: "Une fois la course terminée et votre participation confirmée." },
         ]}
@@ -330,7 +330,7 @@ export default function CoureursPage() {
         <SectionIntro
           eyebrow="En vrai"
           title="Ce que ça peut représenter"
-          subtitle="Le montant dépend de la marque, de l'emplacement, de l'événement et du ciblage demandé — chaque campagne est différente. Voici quelques exemples pour vous donner une idée."
+          subtitle="Le montant dépend de la marque, de l'emplacement du marquage, de l'événement et du ciblage demandé, chaque campagne est différente. Voici quelques exemples pour vous donner une idée."
         />
         {/* Ne pas retirer : mention légale sur le caractère illustratif des exemples */}
         <p className="mx-auto mt-3 max-w-2xl text-center text-[13px] text-ink-3">
@@ -384,7 +384,7 @@ export default function CoureursPage() {
       <ObjectionsSection title="Ce qu'on nous demande souvent" objections={OBJECTIONS} />
 
       <MidCTA
-        title="Prêt à courir pour une bonne cause — la vôtre ?"
+        title="Prêt à courir pour une bonne cause, la vôtre ?"
         buttons={[{ label: "Devenir coureur partenaire", href: RUNNER_SIGNUP_URL, variant: "primary" }]}
       />
 

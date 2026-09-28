@@ -23,7 +23,7 @@ const SUB_BLOCKS: SubBlock[] = [
   {
     number: "01",
     title: "La proposition arrive",
-    paragraph: "Le coureur reçoit une notification avec l'événement, l'emplacement et le montant proposé.",
+    paragraph: "Le coureur reçoit une notification avec l'événement, l'emplacement du marquage et le montant proposé.",
     mockup: (
       <MockupStatusNotification
         statusStep="Nouvelle proposition"
@@ -50,7 +50,7 @@ const SUB_BLOCKS: SubBlock[] = [
   },
   {
     number: "03",
-    title: "L'emplacement est fixé",
+    title: "L'emplacement du marquage est fixé",
     paragraph: "La marque valide la sélection finale de coureurs pour son emplacement.",
     mockup: (
       <MockupSelectionModal
@@ -96,15 +96,14 @@ export default function Home() {
         title="Votre marque, portée par des milliers de coureurs"
         chapo="Wearn équipe des coureurs inscrits à des courses partout en France avec un marquage à votre effigie. Vous choisissez l'événement et le ciblage et notre équipe s'occupe du reste !"
         stats={[
-          { icon: <StatIcon name="users" />, text: "500+ coureurs" },
           { icon: <StatIcon name="trending-up" />, text: "30+ marques" },
-          { icon: <StatIcon name="map-pin" />, text: "15 villes" },
+          { icon: <StatIcon name="calendar" />, text: "1000+ événements sportifs" },
+          { icon: <StatIcon name="percent" />, text: "100% de visibilité" },
         ]}
         ctaButtons={[
           { label: "Je suis une marque", href: CONTACT_PATH, variant: "primary" },
           { label: "Je suis coureur", href: COUREURS_PATH, variant: "secondary" },
         ]}
-        reassurance="Sans engagement, vous choisissez toujours ce qui vous convient."
         mediaLabel="Photo à intégrer : un coureur avec un marquage de marque visible sur sa tenue"
         mediaImageUrl="https://images.pexels.com/photos/10313674/pexels-photo-10313674.jpeg"
         kpiLabel="Coureurs actifs"
@@ -149,7 +148,7 @@ export default function Home() {
         eyebrow="La plateforme"
         title="Le sponsoring classique a un angle mort"
         painParagraph="Un stand touche qui passe devant, pas qui vous ressemble. Un naming coûte cher pour une visibilité diffuse. Une opération d'influence ponctuelle ne dure qu'un post."
-        answerParagraph="Wearn vous met devant l'audience exacte que vous ciblez, pendant toute la durée de l'événement — et à nouveau à la course suivante."
+        answerParagraph="Wearn vous met devant l'audience exacte que vous ciblez, pendant toute la durée de l'événement, et à nouveau à la course suivante."
       />
 
       <FeatureFilteredList
@@ -158,7 +157,7 @@ export default function Home() {
         name="Ciblage"
         title="Notre équipe trouve les coureurs qu'il vous faut"
         eyebrowColor="green"
-        paragraph="Vous choisissez la course et le profil recherché. Notre équipe identifie, parmi les coureurs inscrits, ceux qui correspondent à votre ciblage et s'occupe de les contacter."
+        paragraph="Vous choisissez la course et les profils recherchés. Notre équipe identifie, parmi les coureurs inscrits, ceux qui correspondent à votre ciblage et s'occupe de les contacter."
         searchQuery="Femmes, 25-35 ans, Paris"
         filters={["Âge : 25-35", "Sexe : Femme", "Ville : Paris"]}
         columnLabels={["Coureur", "Score"]}
@@ -194,7 +193,7 @@ export default function Home() {
         title="Un suivi clair, pour les marques et les coureurs"
         eyebrowColor="purple"
         benefits={[
-          { title: "Une photo horodatée à chaque événement", description: "Le coureur confirme sa présence et la visibilité du marquage directement depuis l'application." },
+          { title: "Une photo horodatée à chaque événement", description: "Le coureur confirme sa présence et la visibilité du marquage directement depuis notre plateforme." },
           { title: "Une validation par notre équipe", description: "Chaque participation est vérifiée avant d'être validée, pour garantir la fiabilité de chaque campagne." },
           { title: "Un paiement automatique", description: "Dès la validation, la rémunération du coureur est déclenchée sans délai." },
         ]}
@@ -240,7 +239,7 @@ export default function Home() {
           }}
           runners={{
             tabLabel: "Pour les coureurs",
-            stat: "500+",
+            stat: "5000+",
             statLabel: "coureurs actifs",
             caption: "portent déjà une marque à chaque course.",
             points: [

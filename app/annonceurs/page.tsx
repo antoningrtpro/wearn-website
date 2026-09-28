@@ -23,9 +23,9 @@ import FinalCTA from "@/components/FinalCTA";
 import { CONTACT_PATH } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Wearn pour les marques — Ciblage et présence répétée",
+  title: "Wearn pour les marques, ciblage et présence répétée",
   description:
-    "Ciblez précisément qui porte votre logo lors des courses à pied — âge, sexe, ville, niveau — et répétez votre présence à chaque événement.",
+    "Ciblez précisément qui porte votre logo lors des courses à pied, âge, sexe, ville, niveau, et répétez votre présence à chaque événement.",
 };
 
 const DEPLOY_SUB_BLOCKS: SubBlock[] = [
@@ -119,7 +119,7 @@ const ACTION_CARDS: ActionCard[] = [
     avatarLabel: "PB",
     title: "Paul B.",
     subtitle: "Lyon · Trail · Confirmé",
-    description: "Expérience confirmée sur trail, avec l'emplacement demandé disponible sur son profil.",
+    description: "Expérience confirmée sur trail, avec l'emplacement du marquage demandé disponible sur son profil.",
     tags: ["Inscrit depuis 2024", "18 courses"],
     primaryLabel: "Valider",
     confirmationText: "Paul B. ajouté à la campagne",
@@ -209,7 +209,7 @@ export default function AnnonceursPage() {
         eyebrow="La plateforme"
         title="Le sponsoring classique a un angle mort"
         painParagraph="Un stand touche qui passe devant, pas qui vous ressemble. Un naming coûte cher pour une visibilité diffuse. Une opération d'influence ponctuelle ne dure qu'un post."
-        answerParagraph="Wearn vous met devant l'audience exacte que vous ciblez, pendant toute la durée de l'événement — et à nouveau à la course suivante."
+        answerParagraph="Wearn vous met devant l'audience exacte que vous ciblez, pendant toute la durée de l'événement, et à nouveau à la course suivante."
       />
 
       <FeatureFilteredList

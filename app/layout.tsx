@@ -12,11 +12,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Wearn — La publicité qui court avec vous",
+  title: "Wearn, la publicité qui court avec vous",
   description:
     "Wearn transforme chaque dossard en publicité qui se répète pour les marques, et en revenu pour les coureurs qui le portent.",
   openGraph: {
-    title: "Wearn — La publicité qui court avec vous",
+    title: "Wearn, la publicité qui court avec vous",
     description:
       "Wearn transforme chaque dossard en publicité qui se répète pour les marques, et en revenu pour les coureurs qui le portent.",
     images: ["/og-image.png"],

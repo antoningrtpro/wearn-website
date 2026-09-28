@@ -41,7 +41,7 @@ export async function POST(request: Request) {
       from: CONTACT_FROM_EMAIL,
       to: CONTACT_NOTIFY_EMAILS,
       replyTo: email,
-      subject: `Nouvelle demande de campagne — ${company}`,
+      subject: `Nouvelle demande de campagne, ${company}`,
       text: [
         `Entreprise : ${company}`,
         `Contact : ${contactName}`,

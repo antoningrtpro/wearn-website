@@ -3,7 +3,7 @@ import SectionIntro from "@/components/SectionIntro";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Lancer ma campagne — Wearn",
+  title: "Wearn, lancer ma campagne",
   description: "Parlez-nous de votre marque et de vos objectifs, notre équipe revient vers vous rapidement pour lancer votre campagne.",
 };
 

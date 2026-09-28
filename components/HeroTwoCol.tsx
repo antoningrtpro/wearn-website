@@ -31,7 +31,7 @@ type HeroTwoColProps = {
   title: string;
   chapo: string;
   stats: Stat[];
-  reassurance: string;
+  reassurance?: string;
   mediaLabel: string;
   mediaImageUrl?: string;
   kpiLabel: string;
@@ -127,7 +127,7 @@ export default function HeroTwoCol({
             )
           )}
 
-          <p className="mt-3 text-[13px] text-ink-3">{reassurance}</p>
+          {reassurance && <p className="mt-3 text-[13px] text-ink-3">{reassurance}</p>}
         </Reveal>
 
         <Reveal delayMs={150} className="relative mx-auto w-[85%] lg:w-auto">

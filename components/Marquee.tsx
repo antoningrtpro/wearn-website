@@ -6,6 +6,12 @@ type MarqueeProps = {
   itemClassName?: string;
 };
 
+// Repeated an even number of times so translateX(-50%) always lands exactly
+// on the boundary between two identical halves, however narrow the source
+// items are relative to the container (a short list would otherwise leave
+// visible gaps and break the seamless loop).
+const REPEAT_COUNT = 6;
+
 export default function Marquee({
   items,
   durationSeconds = 40,
@@ -13,6 +19,8 @@ export default function Marquee({
   className = "",
   itemClassName = "",
 }: MarqueeProps) {
+  const repeatedItems = Array.from({ length: REPEAT_COUNT }, () => items).flat();
+
   return (
     <div
       className={`marquee-pausable overflow-hidden ${className}`}
@@ -23,7 +31,7 @@ export default function Marquee({
         data-direction={direction}
         style={{ "--marquee-duration": `${durationSeconds}s` } as React.CSSProperties}
       >
-        {[...items, ...items].map((item, i) => (
+        {repeatedItems.map((item, i) => (
           <span key={i} className={`shrink-0 ${itemClassName}`}>
             {item}
           </span>
