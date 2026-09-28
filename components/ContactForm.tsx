@@ -53,7 +53,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-5 sm:grid-cols-2">
+    <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
       <div className="sm:col-span-1">
         <label htmlFor="company" className="mb-1.5 block text-sm font-medium text-ink">
           Entreprise
@@ -90,7 +90,7 @@ export default function ContactForm() {
           id="message"
           name="message"
           required
-          rows={5}
+          rows={4}
           className={inputClasses}
           placeholder="Décrivez votre marque, vos objectifs et l'événement visé si vous en avez un en tête."
         />

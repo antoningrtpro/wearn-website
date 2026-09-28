@@ -7,7 +7,6 @@ import FeatureSubBlocks, { type SubBlock } from "@/components/FeatureSubBlocks";
 import {
   MockupStatusNotification,
   MockupConversation,
-  MockupSelectionModal,
   MockupApproval,
 } from "@/components/SubBlockMockups";
 import FeatureDashboard from "@/components/FeatureDashboard";
@@ -50,31 +49,14 @@ const SUB_BLOCKS: SubBlock[] = [
   },
   {
     number: "03",
-    title: "L'emplacement du marquage est fixé",
-    paragraph: "La marque valide la sélection finale de coureurs pour son emplacement.",
-    mockup: (
-      <MockupSelectionModal
-        title="Sélection des coureurs"
-        avatarLabels={["ML", "CD", "SL"]}
-        extraCount={197}
-        paramLabel="Emplacement"
-        paramValue="Dos de t-shirt"
-        cancelLabel="Annuler"
-        actionLabel="Valider"
-        actionCount={200}
-      />
-    ),
-  },
-  {
-    number: "04",
-    title: "La réception est confirmée",
-    paragraph: "Le coureur confirme avoir reçu son marquage, prêt pour le jour J.",
+    title: "La photo est envoyée",
+    paragraph: "Le coureur envoie une photo depuis l'application pour confirmer sa participation, notre équipe valide en quelques heures.",
     mockup: (
       <MockupApproval
         avatarLabel="TL"
         identifier="Thomas L."
-        explanation="Marquage bien reçu, prêt à être posé avant la course."
-        approveLabel="Confirmer"
+        explanation="Envoyez une photo pour confirmer votre présence et la visibilité du marquage."
+        approveLabel="Envoyer la photo"
         laterLabel="Plus tard"
       />
     ),
@@ -205,11 +187,11 @@ export default function Home() {
           { value: 32, label: "Courses prévues" },
           { value: 92, suffix: "%", label: "Taux d'acceptation" },
         ]}
-        rankingTitle="Dernières courses"
+        rankingTitle="Dernières validations"
         ranking={[
-          { avatarLabel: "MP", name: "Marathon de Paris", category: "Marathon", volume: "200 coureurs", amount: "2 400 €" },
-          { avatarLabel: "TT", name: "Trail des Templiers", category: "Trail", volume: "80 coureurs", amount: "960 €" },
-          { avatarLabel: "SL", name: "Semi de Lyon", category: "Semi", volume: "120 coureurs", amount: "1 440 €" },
+          { avatarLabel: "TL", name: "Thomas L.", category: "Photo validée", volume: "Paiement envoyé", amount: "45 €" },
+          { avatarLabel: "CD", name: "Camille D.", category: "Photo validée", volume: "Paiement envoyé", amount: "22 €" },
+          { avatarLabel: "ML", name: "Marie L.", category: "Photo validée", volume: "Paiement envoyé", amount: "18 €" },
         ]}
       />
 
@@ -225,11 +207,11 @@ export default function Home() {
             points: [
               {
                 title: "Une présence répétée",
-                description: "Votre marque est portée à chaque course, pas seulement le jour d'un événement ponctuel.",
+                description: "Ça fonctionne d'autant mieux quand l'activation est répétée sur plusieurs événements, pour un taux de répétition élevé.",
               },
               {
                 title: "Un ciblage précis",
-                description: "Vous choisissez le profil des coureurs et la zone géographique visée.",
+                description: "Vous choisissez le profil des coureurs.",
               },
               {
                 title: "Un coût maîtrisé",
