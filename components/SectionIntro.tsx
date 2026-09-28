@@ -25,7 +25,7 @@ export default function SectionIntro({
     <div className={`${alignClasses} ${className}`}>
       {eyebrow && <Eyebrow className="mb-4">{eyebrow}</Eyebrow>}
       <h2
-        className={`mx-auto max-w-4xl text-[32px] font-semibold leading-[1.1] tracking-[-0.02em] sm:text-[40px] lg:text-[48px] ${titleColor}`}
+        className={`mx-auto max-w-5xl text-[32px] font-semibold leading-[1.1] tracking-[-0.02em] sm:text-[40px] lg:text-[48px] ${titleColor}`}
       >
         {title}
       </h2>

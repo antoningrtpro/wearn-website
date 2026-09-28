@@ -57,7 +57,7 @@ export default function FeatureSubBlocks({
                 <h4 className="mt-2 text-lg font-semibold text-ink">{block.title}</h4>
                 <p className="mt-1 text-sm leading-[1.5] text-ink-2">{block.paragraph}</p>
               </div>
-              <div className={block.wide ? "mt-5 sm:mt-0 sm:w-[320px] sm:shrink-0" : "mt-5"}>{block.mockup}</div>
+              <div className={block.wide ? "mt-5 sm:mt-0 sm:w-[460px] sm:shrink-0" : "mt-5"}>{block.mockup}</div>
             </div>
           </Reveal>
         ))}

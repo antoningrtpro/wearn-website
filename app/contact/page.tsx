@@ -4,6 +4,8 @@ import ContactForm from "@/components/ContactForm";
 import Eyebrow from "@/components/Eyebrow";
 import Marquee from "@/components/Marquee";
 import TargetsGrid from "@/components/TargetsGrid";
+import SectionIntro from "@/components/SectionIntro";
+import ComparisonTable from "@/components/ComparisonTable";
 
 export const metadata: Metadata = {
   title: "Wearn, lancer ma campagne",
@@ -47,7 +49,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <div className="bg-[#7DD3FC]">
+      <div className="bg-[#F9A8D4]">
         <TargetsGrid
           eyebrow="Vos avantages"
           title="Pourquoi les marques choisissent Wearn"
@@ -57,6 +59,22 @@ export default function ContactPage() {
             { title: "Rapide à déployer", description: "Une campagne lancée en quelques jours, du ciblage jusqu'au jour de la course." },
           ]}
         />
+      </div>
+
+      <div className="bg-[#93C5FD]">
+        <section className="mx-auto max-w-[1200px] px-6 py-12 sm:px-8 lg:py-16">
+          <SectionIntro eyebrow="Comparatif" title="Pourquoi Wearn plutôt qu'un stand" />
+          <ComparisonTable
+            headers={["Stand événementiel", "Micro-influence", "Wearn"]}
+            highlightColumnIndex={2}
+            rows={[
+              { label: "Coût par contact", values: ["Élevé", "Variable", "Maîtrisé, défini au devis"] },
+              { label: "Répétition de l'exposition", values: ["Un seul jour", "Un post, quelques heures", "À chaque course, avec de nouveaux coureurs"] },
+              { label: "Durée de visibilité", values: ["Le temps de l'événement", "Un post, quelques heures", "Toute la course, en mouvement"] },
+              { label: "Mise en place", values: ["Plusieurs semaines", "Négociation individuelle", "Devis sous 48h"] },
+            ]}
+          />
+        </section>
       </div>
     </>
   );
