@@ -17,13 +17,9 @@ import SectionIntro from "@/components/SectionIntro";
 import Reveal from "@/components/Reveal";
 import EarningsExampleCard, { type EarningsExample } from "@/components/EarningsExampleCard";
 import TargetsGrid from "@/components/TargetsGrid";
-import BentoGrid from "@/components/BentoGrid";
-import Icon from "@/components/Icons";
-import ObjectionsSection, { type Objection } from "@/components/ObjectionsSection";
-import MidCTA from "@/components/MidCTA";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import FinalCTA from "@/components/FinalCTA";
-import { RUNNER_SIGNUP_URL } from "@/lib/constants";
+import { RUNNER_APP_URL, RUNNER_SIGNUP_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Wearn pour les coureurs, courez, portez un logo, soyez payé",
@@ -147,35 +143,17 @@ const EARNINGS_EXAMPLES: EarningsExample[] = [
   },
 ];
 
-const OBJECTIONS: Objection[] = [
+const FAQ_ITEMS: FAQItem[] = [
   {
     question: "Est-ce sérieux, pas une arnaque ?",
     answer:
       "Wearn est une plateforme avec un cadre clair : vous connaissez toujours le montant avant d'accepter, et vous êtes payé une fois votre course terminée, jamais avant.",
   },
   {
-    question: "Le marquage va-t-il abîmer mon t-shirt ou me gêner en course ?",
-    answer:
-      "Non, il s'agit d'un thermocollant temporaire conçu pour un usage ponctuel, sans impact sur le tissu ni sur votre confort de course.",
-  },
-  {
     question: "Suis-je obligé d'accepter si je m'inscris ?",
     answer:
       "Non, absolument aucun engagement. Vous voyez chaque proposition et décidez librement d'accepter ou non.",
   },
-  {
-    question: "Dois-je déclarer cette rémunération ?",
-    answer:
-      "Selon le montant perçu, votre situation peut relever de la déclaration en micro-entrepreneur. Nous vous accompagnons sur ce point lors de votre inscription.",
-  },
-  {
-    question: "À quelle fréquence vais-je recevoir des propositions ?",
-    answer:
-      "Ça dépend des campagnes en cours et de votre profil (ville, disponibilités, courses prévues), plus vous complétez votre profil, plus vous augmentez vos chances de recevoir des propositions adaptées.",
-  },
-];
-
-const FAQ_ITEMS: FAQItem[] = [
   {
     question: "Sur quels types de courses puis-je participer ?",
     answer:
@@ -186,8 +164,41 @@ const FAQ_ITEMS: FAQItem[] = [
     answer: "Oui, si plusieurs emplacements disponibles sur votre tenue sont validés séparément.",
   },
   {
+    question: "Puis-je accepter plusieurs campagnes en même temps ?",
+    answer:
+      "Oui, tant que les emplacements disponibles sur votre tenue ne se chevauchent pas pour un même événement.",
+  },
+  {
+    question: "Le marquage va-t-il abîmer mon t-shirt ou me gêner en course ?",
+    answer:
+      "Non, il s'agit d'un thermocollant temporaire conçu pour un usage ponctuel, sans impact sur le tissu ni sur votre confort de course.",
+  },
+  {
     question: "Que se passe-t-il si je n'arrive pas à prendre ma photo le jour J ?",
     answer: "Contactez-nous rapidement, cela peut affecter votre rémunération pour cette campagne.",
+  },
+  {
+    question: "Comment suis-je payé ?",
+    answer:
+      "Par virement bancaire, déclenché automatiquement dès que votre photo est validée par notre équipe.",
+  },
+  {
+    question: "À quelle fréquence vais-je recevoir des propositions ?",
+    answer:
+      "Ça dépend des campagnes en cours et de votre profil (ville, disponibilités, courses prévues), plus vous complétez votre profil, plus vous augmentez vos chances de recevoir des propositions adaptées.",
+  },
+  {
+    question: "Que se passe-t-il si une marque annule sa campagne ?",
+    answer: "Vous en êtes informé immédiatement et aucune obligation ne subsiste de votre côté.",
+  },
+  {
+    question: "Y a-t-il un âge minimum pour devenir coureur partenaire ?",
+    answer: "Oui, il faut être majeur pour vous inscrire et percevoir une rémunération.",
+  },
+  {
+    question: "Dois-je déclarer cette rémunération ?",
+    answer:
+      "Selon le montant perçu, votre situation peut relever de la déclaration en micro-entrepreneur. Nous vous accompagnons sur ce point lors de votre inscription.",
   },
   {
     question: "Puis-je me désinscrire à tout moment ?",
@@ -204,23 +215,16 @@ export default function CoureursPage() {
         tickerItems={["Un revenu à chaque course", "Aucun engagement", "Montant connu avant d'accepter"]}
         tickerHref="#comment-ca-marche"
         title="Courez. Portez un logo. Soyez payé."
-        chapo="Vous courez déjà régulièrement. Transformez chaque sortie en revenu complémentaire, sans engagement."
+        chapo="Vous courez déjà régulièrement. Transformez chaque course en revenu complémentaire, sans engagement."
         stats={[
-          { icon: <StatIcon name="trending-up" />, text: "Jusqu'à 45 €/course" },
-          { icon: <StatIcon name="zap" />, text: "0 engagement" },
-          { icon: <StatIcon name="percent" />, text: "100% liberté" },
+          { icon: <StatIcon name="trending-up" />, text: "Jusqu'à 50 €/course" },
+          { icon: <StatIcon name="zap" />, text: "Sans engagement" },
         ]}
-        entryQuestion="Combien de courses faites-vous par an ?"
-        entryButtonLabel="Estimer mon gain"
-        entryStepQuestion="Votre fréquence de course"
-        entryOptions={[
-          { label: "1 à 5 courses", result: "Un complément ponctuel, sans aucune contrainte." },
-          { label: "6 à 15 courses", result: "De quoi générer un complément régulier tout au long de la saison." },
-          { label: "Plus de 15 courses", result: "Vous multipliez les opportunités de campagnes à chaque sortie." },
+        ctaButtons={[
+          // TODO: "Estimer mon gain" doit ouvrir une popup d'estimation à construire.
+          { label: "Estimer mon gain", href: "#", variant: "primary" },
+          { label: "Connexion à votre espace", href: RUNNER_APP_URL, variant: "secondary" },
         ]}
-        entryCtaLabel="Devenir coureur partenaire"
-        entryCtaHref={RUNNER_SIGNUP_URL}
-        reassurance="Exemples illustratifs à titre indicatif, les montants réels varient selon chaque campagne."
         mediaLabel="Photo à intégrer : un coureur avec un marquage de marque visible sur sa tenue"
         kpiLabel="Coureurs partenaires"
         kpiValue={5000}
@@ -240,6 +244,7 @@ export default function CoureursPage() {
         number="01"
         name="Propositions"
         title="Des campagnes adaptées à votre profil"
+        eyebrowColor="green"
         paragraph="Ville, distance, marque : vous ne voyez que les propositions qui vous correspondent."
         searchQuery="Marathon, Paris, dos de t-shirt"
         filters={["Ville : Paris", "Format : Marathon", "Emplacement : Dos"]}
@@ -265,6 +270,7 @@ export default function CoureursPage() {
         number="02"
         name="Parcours"
         title="Du premier clic au paiement"
+        eyebrowColor="blue"
         paragraph="Chaque étape est simple, sans surprise à aucun moment."
         subBlocks={PARCOURS_SUB_BLOCKS}
       />
@@ -274,6 +280,7 @@ export default function CoureursPage() {
         number="03"
         name="Suivi"
         title="Vos gains, course après course"
+        eyebrowColor="purple"
         paragraph="Suivez vos campagnes en cours et vos revenus cumulés depuis votre inscription."
         benefits={[
           { title: "Un revenu qui s'accumule", description: "Chaque nouvelle course s'ajoute à la précédente." },
@@ -326,67 +333,36 @@ export default function CoureursPage() {
         ]}
       />
 
-      <section id="exemples-gains" className="mx-auto max-w-[1200px] px-6 py-12 sm:px-8 lg:py-16">
-        <SectionIntro
-          eyebrow="En vrai"
-          title="Ce que ça peut représenter"
-          subtitle="Le montant dépend de la marque, de l'emplacement du marquage, de l'événement et du ciblage demandé, chaque campagne est différente. Voici quelques exemples pour vous donner une idée."
+      <div className="bg-[#86EFAC]">
+        <section id="exemples-gains" className="mx-auto max-w-[1200px] px-6 py-12 sm:px-8 lg:py-16">
+          <SectionIntro
+            eyebrow="En vrai"
+            title="Ce que ça peut représenter"
+            subtitle="Le montant dépend de la marque, de l'emplacement du marquage, de l'événement et du ciblage demandé, chaque campagne est différente. Voici quelques exemples pour vous donner une idée."
+          />
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-3">
+            {EARNINGS_EXAMPLES.map((example, i) => (
+              <Reveal key={example.name} delayMs={i * 100}>
+                <EarningsExampleCard example={example} />
+              </Reveal>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <div className="bg-[#F9A8D4]">
+        <TargetsGrid
+          id="profils"
+          eyebrow="Pour qui"
+          title="Quel que soit votre niveau"
+          targets={[
+            { title: "Coureur occasionnel", description: "Une ou deux courses par an suffisent pour commencer." },
+            { title: "Coureur régulier", description: "Un complément qui s'accumule à chaque sortie." },
+            { title: "Traileur confirmé", description: "Des emplacements variés sur des formats plus longs." },
+          ]}
         />
-        {/* Ne pas retirer : mention légale sur le caractère illustratif des exemples */}
-        <p className="mx-auto mt-3 max-w-2xl text-center text-[13px] text-ink-3">
-          Exemples illustratifs à titre indicatif, les montants réels varient selon chaque campagne.
-        </p>
-
-        <div className="mt-10 grid gap-5 sm:grid-cols-3">
-          {EARNINGS_EXAMPLES.map((example, i) => (
-            <Reveal key={example.name} delayMs={i * 100}>
-              <EarningsExampleCard example={example} />
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <TargetsGrid
-        id="profils"
-        eyebrow="Pour qui"
-        title="Quel que soit votre niveau"
-        targets={[
-          { title: "Coureur occasionnel", description: "Une ou deux courses par an suffisent pour commencer." },
-          { title: "Coureur régulier", description: "Un complément qui s'accumule à chaque sortie." },
-          { title: "Traileur confirmé", description: "Des emplacements variés sur des formats plus longs." },
-        ]}
-      />
-
-      <BentoGrid
-        id="courses"
-        eyebrow="Le terrain"
-        title="Sur quel type de course ?"
-        paragraph="Wearn est présent sur tous les formats, partout en France."
-        featured={{
-          icon: <Icon name="marathon" />,
-          chipLabel: "Le plus courant",
-          name: "Marathons",
-          description: "",
-          longDescription: "Le format le plus demandé par les marques, avec la plus grande visibilité.",
-          linkLabel: "Voir les exemples de gains",
-          linkHref: "#exemples-gains",
-        }}
-        items={[
-          { icon: <Icon name="semi" />, name: "Semi-marathons", description: "Un format populaire, très représenté." },
-          { icon: <Icon name="trail" />, name: "Trails", description: "Emplacements variés, formats plus longs." },
-          { icon: <Icon name="local-race" />, name: "Courses locales", description: "Idéal pour commencer près de chez vous." },
-        ]}
-        note="Toute la France, sur tout type d'événement running."
-        buttonLabel="Devenir coureur partenaire"
-        buttonHref={RUNNER_SIGNUP_URL}
-      />
-
-      <ObjectionsSection title="Ce qu'on nous demande souvent" objections={OBJECTIONS} />
-
-      <MidCTA
-        title="Prêt à courir pour une bonne cause, la vôtre ?"
-        buttons={[{ label: "Devenir coureur partenaire", href: RUNNER_SIGNUP_URL, variant: "primary" }]}
-      />
+      </div>
 
       <FAQAccordion title="FAQ coureur" items={FAQ_ITEMS} />
 
