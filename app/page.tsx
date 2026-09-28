@@ -255,18 +255,6 @@ export default function Home() {
         />
       </div>
 
-      <div className="bg-[#7DD3FC]">
-        <TargetsGrid
-          eyebrow="Vos avantages"
-          title="Pourquoi les marques choisissent Wearn"
-          targets={[
-            { title: "Visibilité répétée", description: "Votre marque est portée à chaque course, sur le terrain, sans se limiter à un seul événement." },
-            { title: "Attractif financièrement", description: "Un coût maîtrisé et défini au devis, sans multiplier votre budget marketing." },
-            { title: "Rapide à déployer", description: "Une campagne lancée en quelques jours, du ciblage jusqu'au jour de la course." },
-          ]}
-        />
-      </div>
-
       <div className="bg-[#93C5FD]">
         <section id="comparatif" className="mx-auto max-w-[1200px] px-6 py-12 sm:px-8 lg:py-16">
           <SectionIntro eyebrow="Comparatif" title="Pourquoi Wearn plutôt qu'un stand" />
