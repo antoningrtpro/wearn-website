@@ -84,8 +84,8 @@ export default function Home() {
           { icon: <StatIcon name="percent" />, text: "100% de visibilité" },
         ]}
         ctaButtons={[
-          { label: "Je suis une marque", href: CONTACT_PATH, variant: "primary" },
-          { label: "Je suis coureur", href: COUREURS_PATH, variant: "secondary" },
+          { label: "Marque, Créer ma campagne", href: CONTACT_PATH, variant: "primary" },
+          { label: "Coureur, Estimer mes gains", href: COUREURS_PATH, variant: "secondary" },
         ]}
         mediaLabel="Photo à intégrer : un coureur avec un marquage de marque visible sur sa tenue"
         mediaImageUrl="https://images.pexels.com/photos/10313674/pexels-photo-10313674.jpeg"
