@@ -262,7 +262,7 @@ export default function CoureursPage() {
         ]}
       />
 
-      <div className="bg-[#86EFAC]">
+      <div className="bg-success-soft">
         <section id="exemples-gains" className="mx-auto max-w-[1200px] px-6 py-12 sm:px-8 lg:py-16">
           <SectionIntro
             eyebrow="En vrai"
@@ -280,7 +280,7 @@ export default function CoureursPage() {
         </section>
       </div>
 
-      <div className="bg-[#F9A8D4]">
+      <div className="bg-surface-muted">
         <TargetsGrid
           id="profils"
           eyebrow="Pour qui"

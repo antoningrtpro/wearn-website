@@ -49,7 +49,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <div className="bg-[#F9A8D4]">
+      <div className="bg-accent-soft">
         <TargetsGrid
           id="avantages"
           eyebrow="Vos avantages"
@@ -62,7 +62,7 @@ export default function ContactPage() {
         />
       </div>
 
-      <div className="bg-[#93C5FD]">
+      <div className="bg-success-soft">
         <section id="comparatif" className="mx-auto max-w-[1200px] px-6 py-12 sm:px-8 lg:py-16">
           <SectionIntro eyebrow="Comparatif" title="Pourquoi Wearn plutôt qu'un stand" />
           <ComparisonTable
