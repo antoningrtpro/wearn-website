@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import CTAButton from "./CTAButton";
 import Logo from "./Logo";
-import { CONTACT_PATH, RUNNER_APP_URL } from "@/lib/constants";
+import { CONTACT_PATH, COUREURS_PATH, RUNNER_APP_URL } from "@/lib/constants";
 import { PLATEFORME_LINKS, COUREUR_LINKS, RESSOURCES_LINKS } from "@/lib/nav-links";
 import { useEstimator } from "@/lib/estimator-context";
 
@@ -64,14 +64,21 @@ export default function Header() {
         </Link>
 
         <nav ref={navRef} className="hidden items-center gap-1 lg:flex">
-          <div className="relative">
+          <div className="relative flex items-center">
+            <Link
+              href="/"
+              onClick={() => setOpenMenu(null)}
+              className="rounded-md py-2 pl-3 text-sm font-medium text-ink-2 transition-colors hover:text-ink"
+            >
+              Plateforme
+            </Link>
             <button
               type="button"
               onClick={() => setOpenMenu(openMenu === "plateforme" ? null : "plateforme")}
-              className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-ink-2 transition-colors hover:text-ink"
+              className="rounded-md p-2 text-ink-2 transition-colors hover:text-ink"
               aria-expanded={openMenu === "plateforme"}
+              aria-label="Afficher les sections de Plateforme"
             >
-              Plateforme
               <ChevronDown className={`transition-transform ${openMenu === "plateforme" ? "rotate-180" : ""}`} />
             </button>
             {openMenu === "plateforme" && (
@@ -106,14 +113,21 @@ export default function Header() {
             )}
           </div>
 
-          <div className="relative">
+          <div className="relative flex items-center">
+            <Link
+              href={COUREURS_PATH}
+              onClick={() => setOpenMenu(null)}
+              className="rounded-md py-2 pl-3 text-sm font-medium text-ink-2 transition-colors hover:text-ink"
+            >
+              Coureur
+            </Link>
             <button
               type="button"
               onClick={() => setOpenMenu(openMenu === "coureur" ? null : "coureur")}
-              className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-ink-2 transition-colors hover:text-ink"
+              className="rounded-md p-2 text-ink-2 transition-colors hover:text-ink"
               aria-expanded={openMenu === "coureur"}
+              aria-label="Afficher les sections de Coureur"
             >
-              Coureur
               <ChevronDown className={`transition-transform ${openMenu === "coureur" ? "rotate-180" : ""}`} />
             </button>
             {openMenu === "coureur" && (
@@ -222,15 +236,24 @@ export default function Header() {
 
           <div className="flex-1 overflow-y-auto px-6 py-4">
             <div className="border-b border-line py-2">
-              <button
-                type="button"
-                onClick={() => setMobileAccordion(mobileAccordion === "plateforme" ? null : "plateforme")}
-                className="flex w-full items-center justify-between py-3 text-left text-base font-semibold text-ink"
-                aria-expanded={mobileAccordion === "plateforme"}
-              >
-                Plateforme
-                <ChevronDown className={`transition-transform ${mobileAccordion === "plateforme" ? "rotate-180" : ""}`} />
-              </button>
+              <div className="flex items-center justify-between">
+                <Link
+                  href="/"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex-1 py-3 text-left text-base font-semibold text-ink"
+                >
+                  Plateforme
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setMobileAccordion(mobileAccordion === "plateforme" ? null : "plateforme")}
+                  className="p-3 text-ink"
+                  aria-expanded={mobileAccordion === "plateforme"}
+                  aria-label="Afficher les sections de Plateforme"
+                >
+                  <ChevronDown className={`transition-transform ${mobileAccordion === "plateforme" ? "rotate-180" : ""}`} />
+                </button>
+              </div>
               {mobileAccordion === "plateforme" && (
                 <div className="pb-3">
                   {PLATEFORME_LINKS.map((link) => (
@@ -256,15 +279,24 @@ export default function Header() {
             </div>
 
             <div className="border-b border-line py-2">
-              <button
-                type="button"
-                onClick={() => setMobileAccordion(mobileAccordion === "coureur" ? null : "coureur")}
-                className="flex w-full items-center justify-between py-3 text-left text-base font-semibold text-ink"
-                aria-expanded={mobileAccordion === "coureur"}
-              >
-                Coureur
-                <ChevronDown className={`transition-transform ${mobileAccordion === "coureur" ? "rotate-180" : ""}`} />
-              </button>
+              <div className="flex items-center justify-between">
+                <Link
+                  href={COUREURS_PATH}
+                  onClick={() => setMobileOpen(false)}
+                  className="flex-1 py-3 text-left text-base font-semibold text-ink"
+                >
+                  Coureur
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setMobileAccordion(mobileAccordion === "coureur" ? null : "coureur")}
+                  className="p-3 text-ink"
+                  aria-expanded={mobileAccordion === "coureur"}
+                  aria-label="Afficher les sections de Coureur"
+                >
+                  <ChevronDown className={`transition-transform ${mobileAccordion === "coureur" ? "rotate-180" : ""}`} />
+                </button>
+              </div>
               {mobileAccordion === "coureur" && (
                 <div className="pb-3">
                   {COUREUR_LINKS.map((link) => (
