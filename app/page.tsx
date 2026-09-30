@@ -192,7 +192,7 @@ export default function Home() {
         ]}
       />
 
-      <div className="bg-accent-soft">
+      <div className="bg-[#C4B5FD]">
         <ValueProposition
           id="avantages"
           eyebrow="La proposition"
@@ -239,7 +239,7 @@ export default function Home() {
         />
       </div>
 
-      <div className="bg-surface-muted">
+      <div className="bg-[#F9A8D4]">
         <TargetsGrid
           eyebrow="Pour qui"
           title="Wearn s'adresse à deux mondes"
@@ -251,7 +251,7 @@ export default function Home() {
         />
       </div>
 
-      <div className="bg-success-soft">
+      <div className="bg-[#93C5FD]">
         <section id="comparatif" className="mx-auto max-w-[1200px] px-6 py-12 sm:px-8 lg:py-16">
           <SectionIntro eyebrow="Comparatif" title="Pourquoi Wearn plutôt qu'un stand" />
           <ComparisonTable
