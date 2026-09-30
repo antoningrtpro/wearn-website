@@ -19,7 +19,8 @@ type EntryOption = {
 
 type HeroCTAButton = {
   label: string;
-  href: string;
+  href?: string;
+  onClick?: () => void;
   variant?: CTAVariant;
 };
 
@@ -103,7 +104,13 @@ export default function HeroTwoCol({
           {ctaButtons ? (
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               {ctaButtons.map((button) => (
-                <CTAButton key={button.label} href={button.href} variant={button.variant ?? "primary"} size="lg">
+                <CTAButton
+                  key={button.label}
+                  href={button.href}
+                  onClick={button.onClick}
+                  variant={button.variant ?? "primary"}
+                  size="lg"
+                >
                   {button.label}
                 </CTAButton>
               ))}

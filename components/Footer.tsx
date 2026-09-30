@@ -1,21 +1,12 @@
 import Link from "next/link";
-import { CONTACT_PATH, COUREURS_PATH } from "@/lib/constants";
+import Logo from "./Logo";
+import { COUREURS_PATH } from "@/lib/constants";
+import { PLATEFORME_LINKS } from "@/lib/nav-links";
 
 const COLUMNS = [
   {
-    title: "Produit",
-    links: [
-      { label: "Comment ça marche", href: "/#comment-ca-marche" },
-      { label: "Coureurs", href: COUREURS_PATH },
-    ],
-  },
-  {
     title: "Marques",
-    links: [
-      { label: "Vos avantages", href: `${CONTACT_PATH}#avantages` },
-      { label: "Comparatif", href: `${CONTACT_PATH}#comparatif` },
-      { label: "Lancer ma campagne", href: CONTACT_PATH },
-    ],
+    links: PLATEFORME_LINKS.map((link) => ({ label: link.title, href: link.href })),
   },
   {
     title: "Coureurs",
@@ -43,10 +34,10 @@ export default function Footer() {
   return (
     <footer id="footer" className="border-t border-line bg-bg">
       <div className="mx-auto max-w-[1200px] px-6 py-16 sm:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.3fr_repeat(4,1fr)]">
+        <div className="grid gap-12 lg:grid-cols-[1.3fr_repeat(3,1fr)]">
           <div>
             <Link href="/" className="text-lg font-semibold text-ink">
-              Wearn
+              <Logo />
             </Link>
             <p className="mt-2 text-sm text-ink-2">La publicité qui court avec vous.</p>
           </div>

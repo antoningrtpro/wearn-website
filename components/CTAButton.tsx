@@ -5,12 +5,15 @@ export type CTAVariant = "primary" | "secondary" | "link" | "inverted" | "link-i
 type CTASize = "md" | "lg";
 
 type CTAButtonProps = {
-  href: string;
+  href?: string;
+  /** When set, renders a real <button> instead of a link (e.g. to open a
+   * modal) — href is ignored in that case. */
+  onClick?: () => void;
   variant?: CTAVariant;
   size?: CTASize;
   className?: string;
   children: React.ReactNode;
-} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href" | "className">;
+} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href" | "className" | "onClick">;
 
 const variantClasses: Record<CTAVariant, string> = {
   primary: "bg-ink text-white hover:bg-ink-2",
@@ -27,15 +30,28 @@ const sizeClasses: Record<CTASize, string> = {
 
 export default function CTAButton({
   href,
+  onClick,
   variant = "primary",
   size = "md",
   className = "",
   children,
   ...rest
 }: CTAButtonProps) {
-  const isExternal = href.startsWith("http");
   const isLink = variant === "link" || variant === "link-inverted";
   const classes = `inline-flex items-center justify-center rounded-md font-medium transition-colors whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${variantClasses[variant]} ${isLink ? "" : sizeClasses[size]} ${className}`;
+
+  if (onClick) {
+    // rest is typed for anchor attributes (target, rel, download, ...) which
+    // don't apply to a real <button> — link-only passthrough props aren't
+    // meaningful in onClick mode, so they're intentionally not forwarded.
+    return (
+      <button type="button" onClick={onClick} className={classes}>
+        {children}
+      </button>
+    );
+  }
+
+  const isExternal = href?.startsWith("http") ?? false;
 
   if (isExternal) {
     return (
@@ -46,7 +62,7 @@ export default function CTAButton({
   }
 
   return (
-    <Link href={href} className={classes} {...rest}>
+    <Link href={href ?? "#"} className={classes} {...rest}>
       {children}
     </Link>
   );

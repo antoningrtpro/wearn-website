@@ -3,7 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import CTAButton from "./CTAButton";
+import Logo from "./Logo";
 import { CONTACT_PATH, RUNNER_APP_URL } from "@/lib/constants";
+import { PLATEFORME_LINKS, COUREUR_LINKS, RESSOURCES_LINKS } from "@/lib/nav-links";
+import { useEstimator } from "@/lib/estimator-context";
 
 function ChevronDown({ className = "" }: { className?: string }) {
   return (
@@ -21,39 +24,13 @@ function ArrowIcon() {
   );
 }
 
-const PLATEFORME_LINKS = [
-  {
-    title: "Ciblage",
-    description: "Trouvez les coureurs qui correspondent à votre besoin",
-    href: "/#comment-ca-marche",
-    dotColor: "#34D399",
-  },
-  {
-    title: "Parcours",
-    description: "De la demande au paiement, sans friction",
-    href: "/#parcours",
-    dotColor: "#60A5FA",
-  },
-  {
-    title: "Suivi",
-    description: "Un suivi clair, pour les marques et les coureurs",
-    href: "/#dashboard",
-    dotColor: "#A78BFA",
-  },
-];
-
-const RESSOURCES_LINKS = [
-  { title: "Blog", href: "/blog" },
-  { title: "Guide", href: "/guide" },
-  { title: "FAQ", href: "/faq" },
-];
-
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [openMenu, setOpenMenu] = useState<"plateforme" | "ressources" | null>(null);
+  const [openMenu, setOpenMenu] = useState<"plateforme" | "coureur" | "ressources" | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileAccordion, setMobileAccordion] = useState<"plateforme" | "ressources" | null>(null);
+  const [mobileAccordion, setMobileAccordion] = useState<"plateforme" | "coureur" | "ressources" | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
+  const { openEstimator } = useEstimator();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -83,7 +60,7 @@ export default function Header() {
         }`}
       >
         <Link href="/" className="text-lg font-semibold text-ink">
-          Wearn
+          <Logo />
         </Link>
 
         <nav ref={navRef} className="hidden items-center gap-1 lg:flex">
@@ -125,6 +102,51 @@ export default function Header() {
                   Lancer ma campagne
                   <ArrowIcon />
                 </Link>
+              </div>
+            )}
+          </div>
+
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setOpenMenu(openMenu === "coureur" ? null : "coureur")}
+              className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-ink-2 transition-colors hover:text-ink"
+              aria-expanded={openMenu === "coureur"}
+            >
+              Coureur
+              <ChevronDown className={`transition-transform ${openMenu === "coureur" ? "rotate-180" : ""}`} />
+            </button>
+            {openMenu === "coureur" && (
+              <div className="absolute left-0 top-full mt-2 w-80 rounded-lg border border-line bg-surface p-2 shadow-mockup">
+                {COUREUR_LINKS.map((link) => (
+                  <Link
+                    key={link.title}
+                    href={link.href}
+                    onClick={() => setOpenMenu(null)}
+                    className="flex items-start gap-3 rounded-md px-3 py-2.5 hover:bg-surface-muted"
+                  >
+                    <span
+                      className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-sm"
+                      style={{ backgroundColor: link.dotColor }}
+                    />
+                    <span>
+                      <p className="text-sm font-semibold text-ink">{link.title}</p>
+                      <p className="text-[13px] text-ink-3">{link.description}</p>
+                    </span>
+                  </Link>
+                ))}
+                <div className="my-2 border-t border-line" />
+                <button
+                  type="button"
+                  onClick={() => {
+                    openEstimator();
+                    setOpenMenu(null);
+                  }}
+                  className="flex w-full items-center justify-between gap-2 rounded-md px-3 py-2.5 text-left text-sm font-semibold text-ink hover:bg-surface-muted"
+                >
+                  Estimer mes gains
+                  <ArrowIcon />
+                </button>
               </div>
             )}
           </div>
@@ -183,7 +205,7 @@ export default function Header() {
         <div className="fixed inset-0 z-[60] flex flex-col bg-bg lg:hidden">
           <div className="flex items-center justify-between px-6 py-4">
             <Link href="/" className="text-lg font-semibold text-ink" onClick={() => setMobileOpen(false)}>
-              Wearn
+              <Logo />
             </Link>
             <button
               type="button"
@@ -229,6 +251,43 @@ export default function Header() {
                   >
                     Lancer ma campagne
                   </Link>
+                </div>
+              )}
+            </div>
+
+            <div className="border-b border-line py-2">
+              <button
+                type="button"
+                onClick={() => setMobileAccordion(mobileAccordion === "coureur" ? null : "coureur")}
+                className="flex w-full items-center justify-between py-3 text-left text-base font-semibold text-ink"
+                aria-expanded={mobileAccordion === "coureur"}
+              >
+                Coureur
+                <ChevronDown className={`transition-transform ${mobileAccordion === "coureur" ? "rotate-180" : ""}`} />
+              </button>
+              {mobileAccordion === "coureur" && (
+                <div className="pb-3">
+                  {COUREUR_LINKS.map((link) => (
+                    <Link
+                      key={link.title}
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="flex items-center gap-2 py-2 text-sm text-ink-2"
+                    >
+                      <span className="h-2 w-2 shrink-0 rounded-sm" style={{ backgroundColor: link.dotColor }} />
+                      {link.title}
+                    </Link>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      openEstimator();
+                      setMobileOpen(false);
+                    }}
+                    className="block py-2 text-left text-sm font-semibold text-ink"
+                  >
+                    Estimer mes gains
+                  </button>
                 </div>
               )}
             </div>

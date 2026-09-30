@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import HeroTwoCol from "@/components/HeroTwoCol";
+import CoureursHero from "@/components/CoureursHero";
 import StatIcon from "@/components/StatIcon";
 import ProblemSolution from "@/components/ProblemSolution";
 import FeatureFilteredList from "@/components/FeatureFilteredList";
@@ -11,15 +11,13 @@ import {
   MockupApproval,
 } from "@/components/SubBlockMockups";
 import FeatureDashboard from "@/components/FeatureDashboard";
-import SignatureBlock from "@/components/SignatureBlock";
-import type { ActionCard } from "@/components/ActionCardDeck";
 import SectionIntro from "@/components/SectionIntro";
 import Reveal from "@/components/Reveal";
 import EarningsExampleCard, { type EarningsExample } from "@/components/EarningsExampleCard";
 import TargetsGrid from "@/components/TargetsGrid";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import FinalCTA from "@/components/FinalCTA";
-import { RUNNER_APP_URL, RUNNER_SIGNUP_URL } from "@/lib/constants";
+import { RUNNER_SIGNUP_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Wearn pour les coureurs, courez, portez un logo, soyez payé",
@@ -83,42 +81,6 @@ const PARCOURS_SUB_BLOCKS: SubBlock[] = [
         actionLabel="Reçu"
       />
     ),
-  },
-];
-
-const ACTION_CARDS: ActionCard[] = [
-  {
-    avatarLabel: "NS",
-    title: "Marque nutrition sportive",
-    subtitle: "Marathon de Paris · Dos de t-shirt",
-    description: "Emplacement disponible sur votre profil, événement dans votre ville. Montant confirmé avant validation.",
-    tags: ["Paiement à J+2"],
-    amount: "45 €",
-    primaryLabel: "Accepter",
-    confirmationText: "Campagne acceptée",
-    ignoreReasons: ["Montant trop faible", "Événement trop loin", "Autre raison"],
-  },
-  {
-    avatarLabel: "AS",
-    title: "Marque assurance",
-    subtitle: "Semi de Lyon · Manche",
-    description: "Emplacement disponible sur votre profil, événement dans votre ville. Montant confirmé avant validation.",
-    tags: ["Paiement à J+2"],
-    amount: "22 €",
-    primaryLabel: "Accepter",
-    confirmationText: "Campagne acceptée",
-    ignoreReasons: ["Montant trop faible", "Événement trop loin", "Autre raison"],
-  },
-  {
-    avatarLabel: "TX",
-    title: "Marque textile running",
-    subtitle: "10km de Bordeaux · Short",
-    description: "Emplacement disponible sur votre profil, événement dans votre ville. Montant confirmé avant validation.",
-    tags: ["Paiement à J+2"],
-    amount: "18 €",
-    primaryLabel: "Accepter",
-    confirmationText: "Campagne acceptée",
-    ignoreReasons: ["Montant trop faible", "Événement trop loin", "Autre raison"],
   },
 ];
 
@@ -209,7 +171,7 @@ const FAQ_ITEMS: FAQItem[] = [
 export default function CoureursPage() {
   return (
     <>
-      <HeroTwoCol
+      <CoureursHero
         id="hero"
         chipLabel="Nouveau"
         tickerItems={["Un revenu à chaque course", "Aucun engagement", "Montant connu avant d'accepter"]}
@@ -220,12 +182,8 @@ export default function CoureursPage() {
           { icon: <StatIcon name="trending-up" />, text: "Jusqu'à 50 €/course" },
           { icon: <StatIcon name="zap" />, text: "Sans engagement" },
         ]}
-        ctaButtons={[
-          // TODO: "Estimer mon gain" doit ouvrir une popup d'estimation à construire.
-          { label: "Estimer mon gain", href: "#", variant: "primary" },
-          { label: "Connexion à votre espace", href: RUNNER_APP_URL, variant: "secondary" },
-        ]}
         mediaLabel="Photo à intégrer : un coureur avec un marquage de marque visible sur sa tenue"
+        mediaImageUrl="https://img.redbull.com/images/c_crop,x_2121,y_0,h_3280,w_2624/c_fill,w_450,h_600/q_auto,f_auto/redbullcom/2017/08/22/c6af0f4c-7f12-42eb-a3dd-d5a5f58bdd3f/trail-red-bull-elements-thibaut-baronian"
         kpiLabel="Coureurs partenaires"
         kpiValue={5000}
         kpiSuffix="+"
@@ -245,7 +203,7 @@ export default function CoureursPage() {
         name="Propositions"
         title="Des campagnes adaptées à votre profil"
         eyebrowColor="green"
-        paragraph="Ville, distance, marque : vous ne voyez que les propositions qui vous correspondent."
+        paragraph="Vous ne recevez de propositions que pour les courses où votre participation est validée."
         searchQuery="Marathon, Paris, dos de t-shirt"
         filters={["Ville : Paris", "Format : Marathon", "Emplacement : Dos"]}
         columnLabels={["Campagne", "Montant"]}
@@ -304,35 +262,6 @@ export default function CoureursPage() {
         ]}
       />
 
-      <SignatureBlock
-        id="validation"
-        eyebrow="Vous restez libre"
-        title="Vous choisissez chaque campagne"
-        chapo="Aucune proposition n'est imposée : vous acceptez ou refusez en toute liberté."
-        stepsTitle="Comment ça marche"
-        steps={[
-          { number: "01", title: "Vous vous inscrivez", description: "Vos infos, votre profil, vos préférences d'emplacement." },
-          { number: "02", title: "Vous recevez une proposition", description: "Événement, emplacement, montant proposé, vous voyez tout avant de répondre." },
-          { number: "03", title: "Vous acceptez ou refusez", description: "Aucune obligation, vous décidez librement." },
-          { number: "04", title: "Vous êtes payé", description: "Une fois la course terminée et votre participation confirmée." },
-        ]}
-        cards={ACTION_CARDS}
-        finalTitle="Tout est traité"
-        finalSummaryTemplate="{total} propositions examinées → {actioned} acceptées"
-        activityRowOne={[
-          "Camille a accepté une campagne à Nantes",
-          "Marquage envoyé pour le Marathon de Paris",
-          "Paiement reçu pour le Trail des Templiers",
-          "Nouvelle proposition disponible à Lyon",
-        ]}
-        activityRowTwo={[
-          "Thomas a validé sa participation",
-          "45 € crédités après une course à Paris",
-          "Nouvelle marque disponible à Bordeaux",
-          "Marquage confirmé pour un semi à Lyon",
-        ]}
-      />
-
       <div className="bg-[#86EFAC]">
         <section id="exemples-gains" className="mx-auto max-w-[1200px] px-6 py-12 sm:px-8 lg:py-16">
           <SectionIntro
@@ -367,7 +296,6 @@ export default function CoureursPage() {
       <FAQAccordion title="FAQ coureur" items={FAQ_ITEMS} />
 
       <FinalCTA
-        eyebrow="Wearn pour les coureurs"
         title="Votre prochaine course peut aussi vous rapporter"
         buttons={[{ label: "Devenir coureur partenaire", href: RUNNER_SIGNUP_URL, variant: "inverted" }]}
       />

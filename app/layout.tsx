@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import SkipLink from "@/components/SkipLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { EstimatorProvider } from "@/lib/estimator-context";
 import "./globals.css";
 
 const inter = Inter({
@@ -34,12 +35,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="fr" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-bg text-ink" suppressHydrationWarning>
-        <SkipLink />
-        <Header />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <EstimatorProvider>
+          <SkipLink />
+          <Header />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </EstimatorProvider>
       </body>
     </html>
   );

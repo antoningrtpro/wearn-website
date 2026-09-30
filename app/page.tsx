@@ -1,4 +1,4 @@
-import HeroTwoCol from "@/components/HeroTwoCol";
+import HomeHero from "@/components/HomeHero";
 import EventsMarquee from "@/components/EventsMarquee";
 import EventLogo from "@/components/EventLogo";
 import ProblemSolution from "@/components/ProblemSolution";
@@ -67,7 +67,7 @@ const SUB_BLOCKS: SubBlock[] = [
 export default function Home() {
   return (
     <>
-      <HeroTwoCol
+      <HomeHero
         id="hero"
         chipLabel="Nouveau"
         tickerItems={[
@@ -82,10 +82,6 @@ export default function Home() {
           { icon: <StatIcon name="trending-up" />, text: "30+ marques" },
           { icon: <StatIcon name="calendar" />, text: "1000+ événements sportifs" },
           { icon: <StatIcon name="percent" />, text: "100% de visibilité" },
-        ]}
-        ctaButtons={[
-          { label: "Marque, Créer ma campagne", href: CONTACT_PATH, variant: "primary" },
-          { label: "Coureur, Estimer mes gains", href: COUREURS_PATH, variant: "secondary" },
         ]}
         mediaLabel="Photo à intégrer : un coureur avec un marquage de marque visible sur sa tenue"
         mediaImageUrl="https://images.pexels.com/photos/10313674/pexels-photo-10313674.jpeg"
@@ -208,7 +204,7 @@ export default function Home() {
             points: [
               {
                 title: "Une présence répétée",
-                description: "Ça fonctionne d'autant mieux quand l'activation est répétée sur plusieurs événements, pour un taux de répétition élevé.",
+                description: "Ça fonctionne d'autant mieux quand l'activation est répétée sur plusieurs événements.",
               },
               {
                 title: "Un ciblage précis",
